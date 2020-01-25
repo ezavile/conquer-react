@@ -1,0 +1,9 @@
+{
+  "name": "@conquer-react/forecast",
+  "version": "0.1.0-dev",
+  "description": "TODO: description",
+  "author": "Edgar Zavala <ezavile@gmail.com>",
+  "scripts": {
+    "start": "parcel src/index.html"
+  }
+}
