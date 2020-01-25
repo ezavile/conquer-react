@@ -7,6 +7,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "3.20.2"
+    "lerna": "3.20.2",
+    "parcel-bundler": "1.12.4"
+  },
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   }
 }
