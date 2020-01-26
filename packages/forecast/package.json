@@ -4,8 +4,11 @@
   "description": "TODO: description",
   "author": "Edgar Zavala <ezavile@gmail.com>",
   "scripts": {
+    "prebuild": "yarn clear",
     "build": "parcel build ./src/index.html",
+    "clear": "rimraf dist",
     "lint": "eslint --ext ts,tsx src",
+    "prestart": "yarn clear",
     "start": "./start.sh"
   },
   "peerDependencies": {
