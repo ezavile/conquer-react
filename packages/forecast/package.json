@@ -5,8 +5,8 @@
   "author": "Edgar Zavala <ezavile@gmail.com>",
   "scripts": {
     "build": "parcel build ./src/index.html",
-    "start": "./start.sh",
-    "lint": "eslint --ext ts,tsx src"
+    "lint": "eslint --ext ts,tsx src",
+    "start": "./start.sh"
   },
   "peerDependencies": {
     "react": "^16.12.0",
