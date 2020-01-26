@@ -4,6 +4,12 @@
   "description": "TODO: description",
   "author": "Edgar Zavala <ezavile@gmail.com>",
   "scripts": {
-    "start": "parcel src/index.html"
+    "build": "parcel build ./src/index.html",
+    "start": "./start.sh",
+    "lint": "eslint --ext ts,tsx src"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
