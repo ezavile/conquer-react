@@ -5,5 +5,8 @@
   },
   "[json]": {
     "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
   }
 }
