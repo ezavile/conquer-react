@@ -26,11 +26,13 @@ module.exports = {
   ],
   settings:  {
     react:  {
-      version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
+      version:  'detect',
     },
   },
   rules: {
     'import/prefer-default-export': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'no-console': 'warn',
+    "import/no-extraneous-dependencies": ["error", {"packageDir": '.'}]
   }
 };
