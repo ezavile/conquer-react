@@ -12,7 +12,9 @@
     "start": "./start.sh"
   },
   "peerDependencies": {
+    "@emotion/core": "^10.0.27",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "tailwindcss": "^1.1.4"
   }
 }
