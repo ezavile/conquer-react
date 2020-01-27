@@ -5,7 +5,7 @@
   "**/package.json": [
     "format-package -w"
   ],
-  "**/*.ts*": [
+  "**/*.{ts,tsx}": [
     "prettier --write",
     "eslint --fix-dry-run"
   ],

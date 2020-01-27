@@ -9,7 +9,8 @@
     "clear": "rimraf dist",
     "lint": "eslint --ext ts,tsx src",
     "prestart": "yarn clear",
-    "start": "./start.sh"
+    "start": "./start.sh",
+    "test": "jest"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.27",

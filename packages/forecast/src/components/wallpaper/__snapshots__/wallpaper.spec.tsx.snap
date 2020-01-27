@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wallpaper renders 1`] = `
+<DocumentFragment>
+  <div
+    class="h-screen bg-cover bg-center css-1l26nll-Wallpaper"
+  />
+</DocumentFragment>
+`;
