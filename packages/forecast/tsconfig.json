@@ -1,8 +1,25 @@
 {
-  "extends": "../../tsconfig.base.json",
+  // TODO: use extends when parcel resolves the problem - https://github.com/parcel-bundler/parcel/pull/3728
+  // "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "dist",
-    "rootDir": "src",
-  }
+    "target": "ES5",
+    "module": "CommonJS",
+    "lib": ["ES2016", "DOM"],
+    "jsx": "react",
+    "sourceMap": true,
+    "noEmit": true,
+    "importHelpers": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
