@@ -1,8 +1,6 @@
 /** @jsx jsx */
-import * as Emotion from '@emotion/core';
-import * as React from 'react';
-
-const { css, jsx } = Emotion;
+import { css, jsx } from '@emotion/core';
+import React from 'react';
 
 interface Wallpaper {
   url: string;
