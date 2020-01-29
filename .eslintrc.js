@@ -7,7 +7,8 @@ module.exports = {
   },
   extends: [
     'airbnb-typescript',
-    'plugin:prettier/recommended'
+    'airbnb/hooks',
+    'plugin:prettier/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -34,6 +35,9 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'no-console': 'warn',
-    "import/no-extraneous-dependencies": ["error", {"packageDir": '.'}]
-  }
+    'import/no-extraneous-dependencies': [
+      'error',
+      { packageDir: ['.', './packages/forecast'] },
+    ],
+  },
 };
