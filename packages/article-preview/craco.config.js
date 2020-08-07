@@ -1,13 +1,3 @@
-const tailwindcss = require('tailwindcss');
+const cracoConfig = require('@conquer-react/craco-config');
 
-module.exports = {
-  style: {
-    postcss: {
-      plugins: [
-        tailwindcss('./tailwind.config.js'),
-        require("postcss-nested"),
-        require('autoprefixer'),
-      ],
-    },
-  },
-};
+module.exports = cracoConfig;

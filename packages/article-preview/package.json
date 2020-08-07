@@ -21,7 +21,9 @@
       "not op_mini all"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "peerDependencies": {
+    "@conquer-react/craco-config": "0.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
