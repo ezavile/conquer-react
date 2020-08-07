@@ -6,6 +6,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "commit": "commit"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
@@ -20,6 +23,10 @@
     "typescript": "3.7.5"
   },
   "devDependencies": {
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
+    "@commitlint/config-lerna-scopes": "9.1.1",
+    "@commitlint/prompt-cli": "9.1.1",
     "@typescript-eslint/eslint-plugin": "3.8.0",
     "@typescript-eslint/parser": "3.8.0",
     "babel-eslint": "10.1.0",
