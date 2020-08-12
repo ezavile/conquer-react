@@ -25,4 +25,8 @@ module.exports = {
       version: 'detect',
     },
   },
+  rules: {
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 'off',
+  },
 };
