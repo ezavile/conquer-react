@@ -9,3 +9,5 @@ node_modules
 dist
 # don't lint nyc coverage output
 coverage
+
+**/*.tsx.snap
