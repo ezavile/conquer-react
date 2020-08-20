@@ -1,0 +1,13 @@
+{
+  "name": "@conquer-react/craco-config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "craco.config.js",
+  "dependencies": {
+    "autoprefixer": "9.8.6",
+    "postcss-nested": "4.2.3"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^1.6.2"
+  }
+}
