@@ -1,12 +1,13 @@
 {
   "name": "conquer-react",
-  "version": "0.1.0-dev",
+  "version": "0.1.0",
   "private": true,
   "author": "Edgar Zavala <ezavile@gmail.com>",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
+    "bump": "lerna version --conventional-commits --amend",
     "commit": "commit"
   },
   "dependencies": {
