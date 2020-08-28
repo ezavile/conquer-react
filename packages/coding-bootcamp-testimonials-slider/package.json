@@ -1,6 +1,6 @@
 {
-  "name": "@conquer-react/article-preview",
-  "version": "0.2.0",
+  "name": "@conquer-react/coding-bootcamp-testimonials-slider",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "craco build",
@@ -21,6 +21,9 @@
       "not op_mini all"
     ]
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
     "@conquer-react/craco-config": "0.1.0"
   },
@@ -29,6 +32,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-transition-group": "^4.4.1",
     "tailwindcss": "^1.6.2"
   }
 }

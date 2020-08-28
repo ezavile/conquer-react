@@ -1,0 +1,26 @@
+.slider-image {
+  &-enter {
+    opacity: 0;
+    transform: translateX(-2rem);
+
+    &-active {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+    transform: translateX(0%);
+
+    &-active {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+  }
+
+  &-enter-active,
+  &-exit-active {
+    transition: opacity 100ms, transform 100ms;
+  }
+}

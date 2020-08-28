@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+body {
+  @apply min-h-screen;
+  @apply bg-white;
+  @apply overflow-x-hidden;
+
+  @apply bg-no-repeat;
+  @apply bg-left-bottom;
+  background-image: url(images/pattern-curve.svg);
+}
+
+@media (max-width: 375px) {
+  body {
+    background-size: 76vw;
+  }
+}

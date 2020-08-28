@@ -1,0 +1,4 @@
+/* NOTE: temp patch since color on grommet react-icons is not working https://github.com/react-icons/react-icons/issues/334  */
+button svg polyline {
+  stroke: #8585ac;
+}

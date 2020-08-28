@@ -32,4 +32,10 @@ describe('<Author />', () => {
 
     expect(publishedAt).toHaveTextContent(author.publishedAt);
   });
+
+  it('formats published date for dateTime attr', () => {
+    const publishedAt = rendered.container.querySelector('time');
+
+    expect(publishedAt?.getAttribute('dateTime')).toEqual('6/27/2020');
+  });
 });
