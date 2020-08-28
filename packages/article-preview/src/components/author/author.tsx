@@ -20,7 +20,10 @@ export const Author: React.FC<AuthorProps> = ({
       </span>
       <span>
         <span className="sr-only">Published at</span>
-        <time className="text-grayish-blue" dateTime={publishedAt}>
+        <time
+          className="text-grayish-blue"
+          dateTime={new Date(publishedAt).toLocaleDateString('en-US')}
+        >
           {publishedAt}
         </time>
       </span>
