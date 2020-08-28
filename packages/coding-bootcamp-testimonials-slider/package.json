@@ -28,6 +28,7 @@
     "@conquer-react/craco-config": "0.1.0"
   },
   "peerDependencies": {
+    "react-transition-group": "^4.4.1",
     "@testing-library/react": "^10.4.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

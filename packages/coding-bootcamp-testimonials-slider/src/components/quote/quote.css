@@ -1,0 +1,22 @@
+.slider-quote {
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
+    }
+  }
+
+  &-enter-active,
+  &-exit-active {
+    transition: opacity 100ms;
+  }
+}
