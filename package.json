@@ -23,6 +23,7 @@
     "react-icons": "3.10.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "4.4.1",
+    "reset-css": "5.0.1",
     "tailwindcss": "1.6.2",
     "typescript": "3.7.5"
   },
