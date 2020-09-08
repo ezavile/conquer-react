@@ -31,12 +31,16 @@ export function App() {
               </span>
             </div>
             <div className="cr_DashboardCard-metrics">
-              <span className="cr_DashboardCard-metrics-value">1987</span>
-              <span className="cr_DashboardCard-metrics-label">Followers</span>
-            </div>
-            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
-              <span className="cr_DashboardCard-stats-icon">[^]</span>
-              <span className="cr_DashboardCard-stats-value">12 Today</span>
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">1987</span>
+                <span className="cr_DashboardCard-subscribers-label">
+                  Followers
+                </span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">12 Today</span>
+              </div>
             </div>
           </article>
           <article className="cr_DashboardCard cr_DashboardCard--followers">
@@ -48,12 +52,16 @@ export function App() {
               </span>
             </div>
             <div className="cr_DashboardCard-metrics">
-              <span className="cr_DashboardCard-metrics-value">1044</span>
-              <span className="cr_DashboardCard-metrics-label">Followers</span>
-            </div>
-            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
-              <span className="cr_DashboardCard-stats-icon">[^]</span>
-              <span className="cr_DashboardCard-stats-value">99 Today</span>
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">1044</span>
+                <span className="cr_DashboardCard-subscribers-label">
+                  Followers
+                </span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">99 Today</span>
+              </div>
             </div>
           </article>
           <article className="cr_DashboardCard cr_DashboardCard--followers">
@@ -65,12 +73,16 @@ export function App() {
               </span>
             </div>
             <div className="cr_DashboardCard-metrics">
-              <span className="cr_DashboardCard-metrics-value">11k</span>
-              <span className="cr_DashboardCard-metrics-label">Followers</span>
-            </div>
-            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
-              <span className="cr_DashboardCard-stats-icon">[^]</span>
-              <span className="cr_DashboardCard-stats-value">1099 Today</span>
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">11k</span>
+                <span className="cr_DashboardCard-subscribers-label">
+                  Followers
+                </span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">1099 Today</span>
+              </div>
             </div>
           </article>
           <article className="cr_DashboardCard cr_DashboardCard--followers">
@@ -82,122 +94,160 @@ export function App() {
               </span>
             </div>
             <div className="cr_DashboardCard-metrics">
-              <span className="cr_DashboardCard-metrics-value">8239</span>
-              <span className="cr_DashboardCard-metrics-label">Subscriber</span>
-            </div>
-            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
-              <span className="cr_DashboardCard-stats-icon">[^]</span>
-              <span className="cr_DashboardCard-stats-value">144 Today</span>
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">8239</span>
+                <span className="cr_DashboardCard-subscribers-label">
+                  Subscribers
+                </span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">144 Today</span>
+              </div>
             </div>
           </article>
         </section>
-        {/* <section>
-          <h2>Overview - Today</h2>
-          <article>
-            <div>
-              <h3>Page Views Facebook</h3>
-              <span>icon facebook</span>
+        <section className="cr_DashboardSubscriptions">
+          <h2 className="cr_DashboardSubscriptions-title cr_u-heading">
+            Overview - Today
+          </h2>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Page Views Facebook
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">87</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">3%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Likes Facebook</h3>
-              <span>icon facebook</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Likes
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">52</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">2%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Likes instagram</h3>
-              <span>icon instagram</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Likes
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">5462</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">2257%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Profile Views instagram</h3>
-              <span>icon instagram</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Profile Views
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">52K</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">1375%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Retweets twitter</h3>
-              <span>icon twitter</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Retweets
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">117</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">303%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Likes twitter</h3>
-              <span>icon twitter</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Likes
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">507</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">553%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Likes Youtube</h3>
-              <span>icon Youtube</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Likes
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">107</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">19%</span>
               </div>
             </div>
           </article>
-          <article>
-            <div>
-              <h3>Total Views Youtube</h3>
-              <span>icon Youtube</span>
+          <article className="cr_DashboardCard cr_DashboardCard--subscriptions">
+            <div className="cr_DashboardCard-title">
+              <h3 className="cr_DashboardCard-title-label cr_u-subheading">
+                Total Views
+              </h3>
+              <span className="cr_DashboardCard-title-icon">[t]</span>
             </div>
-            <div>
-              <span>87</span>
-              <div>
-                <span>icon chevron</span>
-                <span>3%</span>
+            <div className="cr_DashboardCard-metrics">
+              <div className="cr_DashboardCard-subscribers">
+                <span className="cr_DashboardCard-subscribers-value">1407</span>
+              </div>
+              <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
+                <span className="cr_DashboardCard-stats-icon">[^]</span>
+                <span className="cr_DashboardCard-stats-value">12%</span>
               </div>
             </div>
           </article>
-        </section> */}
+        </section>
       </main>
     </div>
   );
