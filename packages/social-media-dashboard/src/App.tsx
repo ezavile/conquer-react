@@ -2,82 +2,96 @@ import React from 'react';
 
 export function App() {
   return (
-    <div>
-      <header>
-        <div>
-          <h1>Social Media Dashboard</h1>
-          <strong>Total followers: 23,004</strong>
+    <div className="cr_Dashboard">
+      <header className="cr_DashboardHeader">
+        <div className="cr_DashboardHeaderTitle">
+          <h1 className="cr_DashboardHeaderTitle-heading cr_u-heading">
+            Social Media Dashboard
+          </h1>
+          <strong className="cr_DashboardHeaderTitle-subheading cr_u-subheading">
+            Total followers: 23,004
+          </strong>
         </div>
-        <div>
-          <span>Dark Mode</span>
-          <span>toggle</span>
+        <div className="cr_DashboardToggle">
+          <span className="cr_DashboardToggle-label cr_u-subheading">
+            Dark Mode
+          </span>
+          <span className="cr_Toggle">toggle</span>
         </div>
       </header>
       <main>
-        <section>
-          <h2>Followers</h2>
-          <article>
-            <h3>facebook</h3>
-            <div>
-              <span>icon facebook</span>
-              <span>@nathanf</span>
+        <section className="cr_DashboardFollowers">
+          <h2 className="cr_u-srOnly">Followers</h2>
+          <article className="cr_DashboardCard cr_DashboardCard--followers">
+            <h3 className="cr_u-srOnly">facebook</h3>
+            <div className="cr_DashboardCard-title">
+              <span className="cr_DashboardCard-title-icon">[f]</span>
+              <span className="cr_DashboardCard-title-subheading cr_u-subheading">
+                @nathanf
+              </span>
             </div>
-            <div>
-              <span>1987</span>
-              <span>Followers</span>
+            <div className="cr_DashboardCard-metrics">
+              <span className="cr_DashboardCard-metrics-value">1987</span>
+              <span className="cr_DashboardCard-metrics-label">Followers</span>
             </div>
-            <div>
-              <span>icon chevron</span>
-              <span>12 Today</span>
-            </div>
-          </article>
-          <article>
-            <h3>twitter</h3>
-            <div>
-              <span>icon twitter</span>
-              <span>@nathanf</span>
-            </div>
-            <div>
-              <span>1987</span>
-              <span>Followers</span>
-            </div>
-            <div>
-              <span>icon chevron</span>
-              <span>12 Today</span>
+            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+              <span className="cr_DashboardCard-stats-icon">[^]</span>
+              <span className="cr_DashboardCard-stats-value">12 Today</span>
             </div>
           </article>
-          <article>
-            <h3>instagram</h3>
-            <div>
-              <span>icon instagram</span>
-              <span>@nathanf</span>
+          <article className="cr_DashboardCard cr_DashboardCard--followers">
+            <h3 className="cr_u-srOnly">twitter</h3>
+            <div className="cr_DashboardCard-title">
+              <span className="cr_DashboardCard-title-icon">[t]</span>
+              <span className="cr_DashboardCard-title-subheading cr_u-subheading">
+                @nathanf
+              </span>
             </div>
-            <div>
-              <span>1987</span>
-              <span>Followers</span>
+            <div className="cr_DashboardCard-metrics">
+              <span className="cr_DashboardCard-metrics-value">1044</span>
+              <span className="cr_DashboardCard-metrics-label">Followers</span>
             </div>
-            <div>
-              <span>icon chevron</span>
-              <span>12 Today</span>
+            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+              <span className="cr_DashboardCard-stats-icon">[^]</span>
+              <span className="cr_DashboardCard-stats-value">99 Today</span>
             </div>
           </article>
-          <article>
-            <h3>YouTube</h3>
-            <div>
-              <span>icon YouTube</span>
-              <span>@nathanf</span>
+          <article className="cr_DashboardCard cr_DashboardCard--followers">
+            <h3 className="cr_u-srOnly">instagram</h3>
+            <div className="cr_DashboardCard-title">
+              <span className="cr_DashboardCard-title-icon">[t]</span>
+              <span className="cr_DashboardCard-title-subheading cr_u-subheading">
+                @realnathanf
+              </span>
             </div>
-            <div>
-              <span>1987</span>
-              <span>Followers</span>
+            <div className="cr_DashboardCard-metrics">
+              <span className="cr_DashboardCard-metrics-value">11k</span>
+              <span className="cr_DashboardCard-metrics-label">Followers</span>
             </div>
-            <div>
-              <span>icon chevron</span>
-              <span>12 Today</span>
+            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--up">
+              <span className="cr_DashboardCard-stats-icon">[^]</span>
+              <span className="cr_DashboardCard-stats-value">1099 Today</span>
+            </div>
+          </article>
+          <article className="cr_DashboardCard cr_DashboardCard--followers">
+            <h3 className="cr_u-srOnly">youtube</h3>
+            <div className="cr_DashboardCard-title">
+              <span className="cr_DashboardCard-title-icon">[t]</span>
+              <span className="cr_DashboardCard-title-subheading cr_u-subheading">
+                Nathan F.
+              </span>
+            </div>
+            <div className="cr_DashboardCard-metrics">
+              <span className="cr_DashboardCard-metrics-value">8239</span>
+              <span className="cr_DashboardCard-metrics-label">Subscriber</span>
+            </div>
+            <div className="cr_DashboardCard-stats cr_DashboardCard-stats--down">
+              <span className="cr_DashboardCard-stats-icon">[^]</span>
+              <span className="cr_DashboardCard-stats-value">144 Today</span>
             </div>
           </article>
         </section>
-        <section>
+        {/* <section>
           <h2>Overview - Today</h2>
           <article>
             <div>
@@ -183,7 +197,7 @@ export function App() {
               </div>
             </div>
           </article>
-        </section>
+        </section> */}
       </main>
     </div>
   );

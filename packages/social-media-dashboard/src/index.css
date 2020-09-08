@@ -1,1 +1,165 @@
 @import 'reset-css';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  --dark-body-bg: #1d1f29;
+  --dark-top-bg: #20222f;
+  --dark-card-bg: #252b42;
+  --dark-heading-color: #fff;
+  --dark-subheading-color: #8c98c6;
+  --dark-text-color: #fff;
+  --dark-hr-bg: #333a55;
+}
+
+body {
+  font-family: 'Inter';
+  background-color: var(--dark-body-bg);
+  color: var(--dark-text-color);
+  min-height: 100vh;
+
+  &:before {
+    content: '';
+    background-color: var(--dark-top-bg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 14.7rem;
+    z-index: -1;
+  }
+}
+
+.cr_u-srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.cr_u-heading {
+  color: var(--dark-heading-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cr_u-subheading {
+  color: var(--dark-subheading-color);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.cr_Dashboard {
+  max-width: 69.375rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem;
+}
+
+.cr_DashboardHeader {
+  margin-bottom: 2.5rem;
+}
+
+.cr_DashboardHeaderTitle {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--dark-hr-bg);
+  margin-bottom: 1rem;
+
+  &-heading {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.cr_DashboardToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-label {
+    margin-right: 0.8125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cr_DashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.875rem;
+  }
+
+  .cr_DashboardHeaderTitle {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.cr_DashboardFollowers {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.9375rem, 1fr));
+}
+
+@media (min-width: 768px) {
+  .cr_DashboardFollowers {
+    gap: 1.875rem;
+  }
+}
+
+.cr_DashboardCard {
+  background-color: var(--dark-card-bg);
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+
+  &--followers {
+    text-align: center;
+    /* TODO: make dynamic color */
+    border-top: 0.25rem solid #1da1f2;
+
+    .cr_DashboardCard-title-icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &-title {
+    margin-bottom: 1.75rem;
+  }
+
+  &-metrics {
+    margin-bottom: 1.5rem;
+
+    &-value {
+      font-size: 3.5rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    &-label {
+      color: var(--dark-subheading-color);
+      letter-spacing: 0.313rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &-stats {
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    &--up {
+      color: #1eb589;
+    }
+
+    &--down {
+      color: #dc414c;
+    }
+
+    &-icon {
+      margin-right: 0.25rem;
+    }
+  }
+}
