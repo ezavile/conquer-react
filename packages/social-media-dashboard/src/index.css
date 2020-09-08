@@ -107,7 +107,8 @@ body {
 
 .cr_DashboardSubscriptions {
   display: grid;
-  gap: 1rem;
+  column-gap: 1.875rem;
+  row-gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(15.9375rem, 1fr));
 
   &-title {
@@ -121,15 +122,6 @@ body {
   }
 }
 
-.cr_DashboardSubscriptions {
-  column-gap: 1.875rem;
-  row-gap: 1.5rem;
-
-  &-title {
-    margin-bottom: 1.6875rem;
-  }
-}
-
 .cr_DashboardCard {
   background-color: var(--dark-card-bg);
   border-radius: 0.25rem;
@@ -140,31 +132,49 @@ body {
     /* TODO: make dynamic color */
     border-top: 0.25rem solid #1da1f2;
 
-    .cr_DashboardCard-title-icon {
-      margin-right: 0.5rem;
+    .cr_DashboardCard-title {
+      justify-content: center;
+
+      &-icon {
+        margin-right: 0.5rem;
+      }
     }
 
     .cr_DashboardCard-subscribers {
       margin-bottom: 1.5rem;
+
+      &-value {
+        font-size: 3.5rem;
+      }
     }
   }
 
   &--subscriptions {
-    .cr_DashboardCard-title,
     .cr_DashboardCard-metrics {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+    }
+
+    .cr_DashboardCard-title,
+    .cr_DashboardCard-metrics {
+      justify-content: space-between;
+    }
+
+    .cr_DashboardCard-subscribers {
+      &-value {
+        font-size: 2rem;
+      }
     }
   }
 
   &-title {
+    display: flex;
+    align-items: center;
     margin-bottom: 1.75rem;
   }
 
   &-subscribers {
     &-value {
-      font-size: 3.5rem;
       font-weight: bold;
       display: block;
     }
