@@ -1,9 +1,11 @@
 import { GrFacebook, GrTwitter, GrInstagram, GrYoutube } from 'react-icons/gr';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 export function App() {
+  const [checked, toggle] = useState(false);
+
   return (
     <div className="cr_Dashboard">
       <header className="cr_DashboardHeader">
@@ -19,7 +21,14 @@ export function App() {
           <span className="cr_DashboardToggle-label cr_u-subheading">
             Dark Mode
           </span>
-          <span className="cr_Toggle">toggle</span>
+          <label className={`cr_Toggle ${checked ? 'is-checked' : ''}`}>
+            <input
+              className="cr_Toggle-native"
+              type="checkbox"
+              onChange={(e) => toggle(e.target.checked)}
+            />
+            <span className="cr_Toggle-fake" />
+          </label>
         </div>
       </header>
       <main>

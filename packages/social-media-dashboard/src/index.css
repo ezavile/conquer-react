@@ -74,6 +74,81 @@ body {
   }
 }
 
+.cr_Toggle {
+  --toggle-width: 3rem;
+  --toggle-height: 1.5rem;
+
+  --circle-width: 1.125rem;
+  --circle-padding: 3px;
+
+  display: inline-block;
+  height: var(--toggle-height);
+  position: relative;
+  width: var(--toggle-width);
+
+  &.is-checked {
+    .cr_Toggle-fake {
+      background: linear-gradient(0deg, #aeb3cb 0%, #aeb3cb 100%);
+
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &:hover {
+    .cr_Toggle-fake {
+      background: linear-gradient(225deg, #40db82 0%, #388fe7 98.02%);
+    }
+  }
+
+  &-native {
+    appearance: none;
+    bottom: 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    max-width: 100%;
+    outline: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &-fake {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(225deg, #40db82 0%, #388fe7 98.02%);
+    border-radius: 0.75rem;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+
+    &::before {
+      background-color: #252b42;
+      border-radius: 50%;
+      content: '';
+      height: var(--circle-width);
+      left: var(--circle-padding);
+      position: absolute;
+      transition: all 0.5s;
+      width: var(--circle-width);
+    }
+  }
+
+  input:checked + .cr_Toggle-fake::before {
+    left: calc(
+      var(--toggle-width) - var(--circle-width) - var(--circle-padding)
+    );
+  }
+}
+
 .cr_DashboardToggle {
   display: flex;
   justify-content: space-between;
