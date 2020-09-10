@@ -24,6 +24,7 @@
     "react-scripts": "3.4.1",
     "react-transition-group": "4.4.1",
     "reset-css": "5.0.1",
+    "styled-reset": "4.2.3",
     "tailwindcss": "1.6.2",
     "typescript": "3.7.5"
   },
