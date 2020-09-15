@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+
+import { AppStateContext } from 'app-context';
 import { mediaQuery } from 'global-style';
 import { CardFollower } from 'components';
 
@@ -15,13 +17,14 @@ const Container = styled.section`
 `;
 
 export const DashboardFollowers = () => {
+  const { socialMedia } = useContext(AppStateContext);
+
   return (
     <Container>
       <h2 className="cr_u-srOnly">Followers</h2>
-      <CardFollower />
-      <CardFollower />
-      <CardFollower />
-      <CardFollower />
+      {socialMedia.map((media) => (
+        <CardFollower key={`${media.general.name}-followers`} {...media} />
+      ))}
     </Container>
   );
 };

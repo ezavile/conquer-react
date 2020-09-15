@@ -1,8 +1,7 @@
-import { GrFacebook } from 'react-icons/gr';
-import { FaCaretDown } from 'react-icons/fa';
-
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components';
+
+import { SocialMedia } from 'models';
 
 import { Card, CardTitle, CardStats, Subheading } from 'components';
 
@@ -17,20 +16,26 @@ const SubscribersValue = styled.span`
   font-size: 2rem;
 `;
 
-export const CardSubscriber = () => {
+export const CardSubscriber: React.FC<SocialMedia> = ({
+  general: { name, Icon },
+  metrics,
+}) => {
   return (
-    <Card>
-      <CardTitle>
-        <Subheading>Page Views</Subheading>
-        <GrFacebook color="#178FF5" size="1.25rem" />
-      </CardTitle>
-      <SubscribersWrapper>
-        <SubscribersValue>1987</SubscribersValue>
-        <CardStats
-          Icon={<FaCaretDown style={{ marginRight: '0.25rem' }} />}
-          status="down"
-        />
-      </SubscribersWrapper>
-    </Card>
+    <>
+      {metrics.map(({ sectionName, total, today, status }) => (
+        <Card key={`${name}-${sectionName}`}>
+          <CardTitle>
+            <h3>
+              <Subheading>{sectionName}</Subheading>
+            </h3>
+            {Icon}
+          </CardTitle>
+          <SubscribersWrapper>
+            <SubscribersValue>{total}</SubscribersValue>
+            <CardStats status={status} value={today} label="%" />
+          </SubscribersWrapper>
+        </Card>
+      ))}
+    </>
   );
 };

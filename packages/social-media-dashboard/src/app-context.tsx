@@ -14,7 +14,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const theme = themes[currentTheme];
 
   return (
-    <AppStateContext.Provider value={{ currentTheme }}>
+    <AppStateContext.Provider value={{ ...initialState, currentTheme }}>
       <AppDispatchContext.Provider value={{ setTheme }}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />

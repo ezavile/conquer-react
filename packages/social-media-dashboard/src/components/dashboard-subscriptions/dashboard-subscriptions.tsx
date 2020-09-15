@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+
+import { AppStateContext } from 'app-context';
 import { CardSubscriber, SectionHeading } from 'components';
 
 const Container = styled.section`
@@ -14,13 +16,14 @@ const Container = styled.section`
 `;
 
 export const DashboardSubscriptions = () => {
+  const { socialMedia } = useContext(AppStateContext);
+
   return (
     <Container>
       <SectionHeading>Overview - Today</SectionHeading>
-      <CardSubscriber />
-      <CardSubscriber />
-      <CardSubscriber />
-      <CardSubscriber />
+      {socialMedia.map((media) => (
+        <CardSubscriber key={`${media.general.name}-subscribers`} {...media} />
+      ))}
     </Container>
   );
 };

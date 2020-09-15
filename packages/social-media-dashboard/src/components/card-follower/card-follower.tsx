@@ -1,15 +1,13 @@
-import { GrFacebook } from 'react-icons/gr';
-import { FaCaretUp } from 'react-icons/fa';
-
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components';
+
+import { Theme, SocialMedia } from 'models';
 
 import { Card, CardTitle, CardStats, Subheading } from 'components';
-import { Theme } from 'models';
 
-const Container = styled(Card)`
+const Container = styled(Card)<{ color: string }>`
   text-align: center;
-  border-top: 0.25rem solid #1da1f2;
+  border-top: 0.25rem solid ${(props) => props.color};
 `;
 
 const SubscribersWrapper = styled.div`
@@ -29,26 +27,20 @@ const SubscribersLabel = styled.span`
   text-transform: uppercase;
 `;
 
-export const CardFollower = () => {
-  return (
-    <Container>
-      <h3 className="cr_u-srOnly">facebook</h3>
-      <CardTitle center>
-        <GrFacebook
-          color="#178FF5"
-          style={{ marginRight: '0.5rem' }}
-          size="1.25rem"
-        />
-        <Subheading>@nathanf</Subheading>
-      </CardTitle>
-      <SubscribersWrapper>
-        <SubscribersValue>1987</SubscribersValue>
-        <SubscribersLabel>Followers</SubscribersLabel>
-      </SubscribersWrapper>
-      <CardStats
-        Icon={<FaCaretUp style={{ marginRight: '0.25rem' }} />}
-        status="up"
-      />
-    </Container>
-  );
-};
+export const CardFollower: React.FC<SocialMedia> = ({
+  general: { name, username, Icon, color },
+  followers: { total, today, status },
+}) => (
+  <Container color={color}>
+    <h3 className="cr_u-srOnly">{name}</h3>
+    <CardTitle center>
+      {Icon}
+      <Subheading style={{ marginLeft: '0.5rem' }}>{username}</Subheading>
+    </CardTitle>
+    <SubscribersWrapper>
+      <SubscribersValue>{total}</SubscribersValue>
+      <SubscribersLabel>Followers</SubscribersLabel>
+    </SubscribersWrapper>
+    <CardStats status={status} value={today} label="today" />
+  </Container>
+);

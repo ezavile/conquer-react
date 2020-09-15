@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { mediaQuery } from 'global-style';
+import { AppStateContext } from 'app-context';
 import { Theme } from 'models';
 import { Toggle, Heading, Subheading } from 'components';
 
@@ -32,12 +33,16 @@ const Title = styled(Heading)`
   margin-bottom: 0.25rem;
 `;
 
-export const DashboardHeader = () => (
-  <Header>
-    <TitleWrapper>
-      <Title>Social Media Dashboard</Title>
-      <Subheading>Total followers: 23,004</Subheading>
-    </TitleWrapper>
-    <Toggle />
-  </Header>
-);
+export const DashboardHeader = () => {
+  const { totalFollowers } = useContext(AppStateContext);
+
+  return (
+    <Header>
+      <TitleWrapper>
+        <Title>Social Media Dashboard</Title>
+        <Subheading>Total followers: {totalFollowers}</Subheading>
+      </TitleWrapper>
+      <Toggle />
+    </Header>
+  );
+};
