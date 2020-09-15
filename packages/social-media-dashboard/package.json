@@ -32,6 +32,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "styled-components": "^5.2.0",
+    "styled-reset": "^4.2.3"
   }
 }
