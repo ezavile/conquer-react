@@ -53,6 +53,7 @@
     "eslint-plugin-react-hooks": "4.0.8",
     "format-package": "6.1.0",
     "husky": "4.2.5",
+    "jest-styled-components": "7.0.3",
     "lerna": "3.22.1",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",

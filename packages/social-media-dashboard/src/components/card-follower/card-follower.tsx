@@ -7,7 +7,9 @@ import { Card, CardTitle, CardStats, Subheading } from 'components';
 
 const Container = styled(Card)<{ color: string }>`
   text-align: center;
-  border-top: 0.25rem solid ${(props) => props.color};
+  border-top-width: 0.25rem;
+  border-top-style: solid;
+  border-top-color: ${(props) => props.color};
 `;
 
 const SubscribersWrapper = styled.div`
@@ -27,7 +29,10 @@ const SubscribersLabel = styled.span`
   text-transform: uppercase;
 `;
 
-export const CardFollower: React.FC<SocialMedia> = ({
+export const CardFollower: React.FC<Pick<
+  SocialMedia,
+  'general' | 'followers'
+>> = ({
   general: { name, username, Icon, color },
   followers: { total, today, status },
 }) => (

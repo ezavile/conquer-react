@@ -19,7 +19,9 @@ const Header = styled.header`
 
 const TitleWrapper = styled.div`
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid ${(props: { theme: Theme }) => props.theme.hrBg};
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: ${(props: { theme: Theme }) => props.theme.hrBg};
   margin-bottom: 1rem;
 
   @media ${mediaQuery.tablet} {
