@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/craco-config@0.1.0...@conquer-react/craco-config@0.2.0) (2020-09-17)
+
+
+### Features
+
+* **craco-config:** add basic config in order to not use tailwindcss ([b7dd587](https://github.com/ezavile/conquer-react/commit/b7dd587098fcb6e701debda7ec236a0a5bab2b32))
+
+
+
+
+
 # 0.1.0 (2020-08-20)
 
 

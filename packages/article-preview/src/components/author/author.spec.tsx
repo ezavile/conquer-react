@@ -36,6 +36,6 @@ describe('<Author />', () => {
   it('formats published date for dateTime attr', () => {
     const publishedAt = rendered.container.querySelector('time');
 
-    expect(publishedAt?.getAttribute('dateTime')).toEqual('6/27/2020');
+    expect(publishedAt?.getAttribute('dateTime')).toEqual('2020-27-6');
   });
 });

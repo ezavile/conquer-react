@@ -1,6 +1,6 @@
 {
-  "name": "@conquer-react/coding-bootcamp-testimonials-slider",
-  "version": "0.1.1",
+  "name": "@conquer-react/social-media-dashboard",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "craco build",
@@ -29,10 +29,12 @@
   },
   "peerDependencies": {
     "@testing-library/react": "^10.4.8",
+    "jest-styled-components": "^7.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
-    "react-transition-group": "^4.4.1",
-    "tailwindcss": "^1.6.2"
+    "reset-css": "^5.0.1",
+    "styled-components": "^5.2.0",
+    "styled-reset": "^4.2.3"
   }
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.2.0...@conquer-react/article-preview@0.2.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* **article-preview:** adjust format for datetime attr ([c0a784f](https://github.com/ezavile/conquer-react/commit/c0a784f965173f858202082c97bafb55ac39f342))
+
+
+
+
+
 # [0.2.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.1.0...@conquer-react/article-preview@0.2.0) (2020-08-28)
 
 

@@ -10,23 +10,27 @@ export const Author: React.FC<AuthorProps> = ({
   avatar,
   name,
   publishedAt,
-}) => (
-  <div className="flex items-center whitespace-no-wrap">
-    <img src={avatar} className="w-12 h-12 rounded-full mr-4" alt="" />
-    <div className="flex flex-col text-sm">
-      <span>
-        <span className="sr-only">Author:</span>
-        <strong className="text-dark-grayish-blue font-bold">{name}</strong>
-      </span>
-      <span>
-        <span className="sr-only">Published at</span>
-        <time
-          className="text-grayish-blue"
-          dateTime={new Date(publishedAt).toLocaleDateString('en-US')}
-        >
-          {publishedAt}
-        </time>
-      </span>
+}) => {
+  const datetime = new Date(publishedAt).toLocaleDateString('en-US');
+
+  return (
+    <div className="flex items-center whitespace-no-wrap">
+      <img src={avatar} className="w-12 h-12 rounded-full mr-4" alt="" />
+      <div className="flex flex-col text-sm">
+        <span>
+          <span className="sr-only">Author:</span>
+          <strong className="text-dark-grayish-blue font-bold">{name}</strong>
+        </span>
+        <span>
+          <span className="sr-only">Published at</span>
+          <time
+            className="text-grayish-blue"
+            dateTime={datetime.split('/').reverse().join('-')}
+          >
+            {publishedAt}
+          </time>
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};

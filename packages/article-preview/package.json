@@ -1,6 +1,6 @@
 {
   "name": "@conquer-react/article-preview",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "build": "craco build",
@@ -22,7 +22,7 @@
     ]
   },
   "dependencies": {
-    "@conquer-react/craco-config": "0.1.0"
+    "@conquer-react/craco-config": "^0.2.0"
   },
   "peerDependencies": {
     "@testing-library/react": "^10.4.8",
