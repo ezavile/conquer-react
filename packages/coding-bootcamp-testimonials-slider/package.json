@@ -1,6 +1,6 @@
 {
   "name": "@conquer-react/coding-bootcamp-testimonials-slider",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "build": "craco build",
@@ -28,11 +28,13 @@
     "@conquer-react/craco-config": "^0.2.0"
   },
   "peerDependencies": {
-    "@testing-library/react": "^10.4.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^3.11.0",
     "react-transition-group": "^4.4.1",
-    "tailwindcss": "^1.6.2"
+    "tailwindcss": "^1.9.6",
+    "web-vitals": "^0.2.4"
   }
 }

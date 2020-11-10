@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/coding-bootcamp-testimonials-slider@0.1.1...@conquer-react/coding-bootcamp-testimonials-slider@0.2.0) (2020-11-10)
+
+
+### Features
+
+* **coding-bootcamp-testimonials-slider:** adjust after update core deps ([fd5d7ad](https://github.com/ezavile/conquer-react/commit/fd5d7ad6a90fa73a788d6d33f3855b3d37816a23))
+
+
+
+
+
 ## [0.1.1](https://github.com/ezavile/conquer-react/compare/@conquer-react/coding-bootcamp-testimonials-slider@0.1.0...@conquer-react/coding-bootcamp-testimonials-slider@0.1.1) (2020-09-17)
 
 **Note:** Version bump only for package @conquer-react/coding-bootcamp-testimonials-slider

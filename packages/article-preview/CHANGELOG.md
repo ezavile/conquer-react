@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.2.1...@conquer-react/article-preview@0.3.0) (2020-11-10)
+
+
+### Features
+
+* **article-preview:** adjust after update core deps ([dc8bb8b](https://github.com/ezavile/conquer-react/commit/dc8bb8bec8b831bd152f12d36579291978a9a8a0))
+
+
+
+
+
 ## [0.2.1](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.2.0...@conquer-react/article-preview@0.2.1) (2020-09-17)
 
 

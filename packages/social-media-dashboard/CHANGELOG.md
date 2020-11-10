@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/social-media-dashboard@0.1.0...@conquer-react/social-media-dashboard@0.2.0) (2020-11-10)
+
+
+### Features
+
+* **social-media-dashboard:** adjust after update core dep ([d1563be](https://github.com/ezavile/conquer-react/commit/d1563be4978ec2e2d83cc2a0516bfbe08f6608fd))
+
+
+
+
+
 # 0.1.0 (2020-09-17)
 
 
