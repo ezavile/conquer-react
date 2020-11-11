@@ -18,7 +18,7 @@ export const Image = () => {
         backgroundImage: `url(${patternBg})`,
       }}
     >
-      <SwitchTransition mode={'out-in'}>
+      <SwitchTransition mode="out-in">
         <CSSTransition
           nodeRef={imageRef}
           key={name}

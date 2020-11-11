@@ -19,7 +19,7 @@ export const Quote = () => {
         className="absolute top-0 left-0 right-0 bg-no-repeat bg-center bg-contain h-12 lg:h-24 lg:w-24 lg:ml-24 lg:-mt-12 lg:right-auto"
         style={{ backgroundImage: `url(${quotes})` }}
       />
-      <SwitchTransition mode={'out-in'}>
+      <SwitchTransition mode="out-in">
         <CSSTransition
           nodeRef={sliderTextRef}
           key={index}

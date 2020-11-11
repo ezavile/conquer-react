@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { render, RenderResult } from '@testing-library/react';
-import { Image } from './image';
 
 import { AppProviderMock } from '__mocks__/app-context-mock';
 import { initialState } from 'app-context';
+import { Image } from './image';
 
 describe('<Image />', () => {
   let rendered: RenderResult;

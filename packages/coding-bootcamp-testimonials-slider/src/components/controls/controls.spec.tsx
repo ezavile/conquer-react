@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { render, RenderResult, fireEvent } from '@testing-library/react';
-import { Controls } from './controls';
-
 import { AppProviderMock } from '__mocks__/app-context-mock';
+import { Controls } from './controls';
 
 describe('<Controls />', () => {
   let rendered: RenderResult;
