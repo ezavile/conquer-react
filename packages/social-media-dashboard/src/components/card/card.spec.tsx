@@ -3,8 +3,8 @@ import React from 'react';
 import { RenderResult } from '@testing-library/react';
 
 import { renderWithTheme } from '__mocks__/app-context-mock';
-import { Card } from './card';
 import { themes } from 'models';
+import { Card } from './card';
 
 describe('<Card />', () => {
   let rendered: RenderResult;

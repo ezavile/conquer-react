@@ -21,9 +21,6 @@
       "not op_mini all"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "dependencies": {
     "@conquer-react/craco-config": "^0.2.0"
   },

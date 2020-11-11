@@ -3,8 +3,8 @@ import React from 'react';
 import { RenderResult } from '@testing-library/react';
 
 import { renderAppProvider } from '__mocks__/app-context-mock';
-import { DashboardFollowers } from './dashboard-followers';
 import { initialState } from 'models';
+import { DashboardFollowers } from './dashboard-followers';
 
 describe('<DashboardFollowers />', () => {
   let rendered: RenderResult;

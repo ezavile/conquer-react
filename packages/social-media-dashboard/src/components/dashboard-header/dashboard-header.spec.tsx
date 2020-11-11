@@ -3,8 +3,8 @@ import React from 'react';
 import { RenderResult } from '@testing-library/react';
 
 import { renderWithTheme } from '__mocks__/app-context-mock';
-import { DashboardHeader } from './dashboard-header';
 import { initialState, themes } from 'models';
+import { DashboardHeader } from './dashboard-header';
 
 describe('<DashboardHeader />', () => {
   let rendered: RenderResult;

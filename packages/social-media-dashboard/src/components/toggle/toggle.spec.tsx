@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { RenderResult, fireEvent } from '@testing-library/react';
-import { Toggle } from './toggle';
-
 import { renderAppProvider } from '__mocks__/app-context-mock';
+import { Toggle } from './toggle';
 
 describe('<Toggle />', () => {
   let rendered: RenderResult;
