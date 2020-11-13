@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BackgroundImage } from './components';
-import { GlobalStyle } from './global-style';
+import { GlobalStyle } from './styles/global-style';
 
 function App() {
   return (
