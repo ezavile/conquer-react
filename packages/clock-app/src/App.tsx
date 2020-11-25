@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BackgroundImage, Text, TextType } from './components';
+import { BackgroundImage, Text, TextType, ToggleButton } from './components';
 import { GlobalStyle } from './styles/global-style';
 
 const types: TextType[] = ['xxl', 'xl', 'l', 'm', 's', 'body', 'xs'];
@@ -15,6 +15,7 @@ function App() {
           Lorem {type}
         </Text>
       ))}
+      <ToggleButton />
     </>
   );
 }
