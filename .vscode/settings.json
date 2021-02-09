@@ -9,5 +9,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "eslint.workingDirectories": [{ "mode": "auto" }]
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "conventionalCommits.scopes": [
+    "article-preview",
+    "coding-bootcamp-testimonials-slider",
+    "craco-config",
+    "social-media-dashboard"
+  ]
 }
