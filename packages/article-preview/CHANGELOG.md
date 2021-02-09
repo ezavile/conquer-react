@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.3.0...@conquer-react/article-preview@0.4.0) (2021-02-09)
+
+
+### Features
+
+* **article-preview:** adjustments after upgrading to React@17 ([0a91af4](https://github.com/ezavile/conquer-react/commit/0a91af4be5bd082fd38112b3e44503b8e6d4dbbc))
+
+
+
+
+
 # [0.3.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/article-preview@0.2.1...@conquer-react/article-preview@0.3.0) (2020-11-10)
 
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { AppProvider } from 'app-context';
 import { Image, Quote } from 'components';
 

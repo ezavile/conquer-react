@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/coding-bootcamp-testimonials-slider@0.2.0...@conquer-react/coding-bootcamp-testimonials-slider@0.3.0) (2021-02-09)
+
+
+### Features
+
+* **coding-bootcamp-testimonials-slider:** adjustments after upgrading to React@17 ([6fa7d4c](https://github.com/ezavile/conquer-react/commit/6fa7d4c15b77d9ab57ab5d7f9de51f6f9e699c1d))
+
+
+
+
+
 # [0.2.0](https://github.com/ezavile/conquer-react/compare/@conquer-react/coding-bootcamp-testimonials-slider@0.1.1...@conquer-react/coding-bootcamp-testimonials-slider@0.2.0) (2020-11-10)
 
 

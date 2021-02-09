@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import './image.css';
@@ -18,7 +18,7 @@ export const Image = () => {
         backgroundImage: `url(${patternBg})`,
       }}
     >
-      <SwitchTransition mode={'out-in'}>
+      <SwitchTransition mode="out-in">
         <CSSTransition
           nodeRef={imageRef}
           key={name}

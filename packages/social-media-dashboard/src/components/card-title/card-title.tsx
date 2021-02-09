@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 export interface CardTitleProps {
@@ -12,6 +12,6 @@ export const Container = styled.div<CardTitleProps>`
   justify-content: ${(props) => (props.center ? 'center' : 'space-between')};
 `;
 
-export const CardTitle: React.FC<CardTitleProps> = ({ center, children }) => (
+export const CardTitle: FC<CardTitleProps> = ({ center, children }) => (
   <Container center={center}>{children}</Container>
 );

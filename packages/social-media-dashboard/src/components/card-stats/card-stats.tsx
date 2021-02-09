@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 
@@ -16,11 +16,7 @@ const Container = styled.div<{ status: CardStatsProps['status'] }>`
   color: ${(props) => (props.status === 'up' ? '#1eb589' : '#dc414c')};
 `;
 
-export const CardStats: React.FC<CardStatsProps> = ({
-  status,
-  value,
-  label,
-}) => {
+export const CardStats: FC<CardStatsProps> = ({ status, value, label }) => {
   const Caret = status === 'up' ? FaCaretUp : FaCaretDown;
 
   return (

@@ -6,7 +6,6 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
-    // TODO: only it works in this file, check why not works on others
     'plugin:prettier/recommended',
   ],
   plugins: ['react', '@typescript-eslint'],
@@ -29,5 +28,15 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+        // mono-repo root and package
+        packageDir: [__dirname, './'],
+      },
+    ],
   },
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 
 import {
   AppStateContext,
@@ -14,7 +14,7 @@ export const AppProviderMock = ({
 }: {
   state?: AppState;
   dispatch?: AppDispatch;
-}): React.FunctionComponent<{}> => ({ children }) => (
+}): FunctionComponent<{}> => ({ children }) => (
   <AppStateContext.Provider value={state || initialState}>
     <AppDispatchContext.Provider
       value={dispatch || { setTestimonial: () => {} }}

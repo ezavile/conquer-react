@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import { ReactNode, createContext, useState } from 'react';
 
 import john from './images/image-john.jpg';
 import tanya from './images/image-tanya.jpg';
@@ -49,7 +49,7 @@ const AppDispatchContext = createContext<AppDispatch>({
   setTestimonial: () => {},
 });
 
-const AppProvider = ({ children }: { children: React.ReactNode }) => {
+const AppProvider = ({ children }: { children: ReactNode }) => {
   const [currentIndex, setTestimonial] = useState(0);
 
   const checkIndex = () => {

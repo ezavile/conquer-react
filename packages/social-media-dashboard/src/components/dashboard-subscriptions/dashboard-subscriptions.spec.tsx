@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { RenderResult } from '@testing-library/react';
 
 import { renderAppProvider } from '__mocks__/app-context-mock';
-import { DashboardSubscriptions } from './dashboard-subscriptions';
 import { initialState } from 'models';
+import { DashboardSubscriptions } from './dashboard-subscriptions';
 
 describe('<DashboardSubscriptions />', () => {
   let rendered: RenderResult;

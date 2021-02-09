@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { RenderResult } from '@testing-library/react';
 
 import { renderAppProvider, renderWithTheme } from '__mocks__/app-context-mock';
-import { SectionHeading } from './section-heading';
 import { themes } from 'models';
+import { SectionHeading } from './section-heading';
 
 describe('<SectionHeading />', () => {
   let rendered: RenderResult;

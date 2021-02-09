@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { render, RenderResult } from '@testing-library/react';
 
 import { renderAppProvider } from '__mocks__/app-context-mock';
-import { CardSubscriber } from './card-subscriber';
 import { initialState } from 'models';
+import { CardSubscriber } from './card-subscriber';
 
 describe('<CardSubscriber />', () => {
   let rendered: RenderResult;

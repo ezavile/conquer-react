@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { render, RenderResult } from '@testing-library/react';
-import { Quote } from './quote';
 
 import { AppProviderMock } from '__mocks__/app-context-mock';
 import { initialState } from 'app-context';
+import { Quote } from './quote';
 
 describe('<Quote />', () => {
   let rendered: RenderResult;

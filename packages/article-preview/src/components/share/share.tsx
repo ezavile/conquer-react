@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaFacebookSquare, FaTwitter, FaPinterest } from 'react-icons/fa';
 import { IoIosShareAlt } from 'react-icons/io';
 

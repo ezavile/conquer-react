@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'styled-components';
-import React, { createContext, useState } from 'react';
+import { createContext, useState, ReactNode } from 'react';
+
 import { GlobalStyle } from 'global-style';
 import { initialState, AppDispatch, CurrentTheme, themes } from 'models';
 
@@ -8,7 +9,7 @@ const AppDispatchContext = createContext<AppDispatch>({
   setTheme: () => {},
 });
 
-const AppProvider = ({ children }: { children: React.ReactNode }) => {
+const AppProvider = ({ children }: { children: ReactNode }) => {
   const [currentTheme, setTheme] = useState<CurrentTheme>('dark');
 
   const theme = themes[currentTheme];
