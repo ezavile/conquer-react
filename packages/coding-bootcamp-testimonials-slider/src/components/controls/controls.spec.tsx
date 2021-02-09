@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { render, RenderResult, fireEvent } from '@testing-library/react';
 import { AppProviderMock } from '__mocks__/app-context-mock';
 import { Controls } from './controls';

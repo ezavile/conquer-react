@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import './quote.css';
