@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { SocialMedia } from 'models';
@@ -16,10 +16,10 @@ const SubscribersValue = styled.span`
   font-size: 2rem;
 `;
 
-export const CardSubscriber: React.FC<Pick<
-  SocialMedia,
-  'general' | 'metrics'
->> = ({ general: { name, Icon }, metrics }) => {
+export const CardSubscriber: FC<Pick<SocialMedia, 'general' | 'metrics'>> = ({
+  general: { name, Icon },
+  metrics,
+}) => {
   return (
     <>
       {metrics.map(({ sectionName, total, today, status }) => (

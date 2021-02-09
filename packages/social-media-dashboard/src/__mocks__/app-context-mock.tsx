@@ -1,4 +1,4 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { render } from '@testing-library/react';
@@ -18,7 +18,7 @@ const AppProviderMock = ({
 }: {
   state: AppState;
   dispatch: AppDispatch;
-}): React.FunctionComponent<{}> => ({ children }) => (
+}): FunctionComponent<{}> => ({ children }) => (
   <AppStateContext.Provider value={state}>
     <AppDispatchContext.Provider value={dispatch}>
       <ThemeProvider theme={themes[state.currentTheme]}>

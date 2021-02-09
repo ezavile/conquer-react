@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { RenderResult } from '@testing-library/react';
 
 import { renderAppProvider, renderWithTheme } from '__mocks__/app-context-mock';

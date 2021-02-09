@@ -1,4 +1,3 @@
-import React from 'react';
 import { GrFacebook, GrTwitter, GrInstagram, GrYoutube } from 'react-icons/gr';
 
 import { CurrentTheme } from './theme';

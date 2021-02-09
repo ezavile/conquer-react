@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Theme, SocialMedia } from 'models';
@@ -29,10 +29,7 @@ const SubscribersLabel = styled.span`
   text-transform: uppercase;
 `;
 
-export const CardFollower: React.FC<Pick<
-  SocialMedia,
-  'general' | 'followers'
->> = ({
+export const CardFollower: FC<Pick<SocialMedia, 'general' | 'followers'>> = ({
   general: { name, username, Icon, color },
   followers: { total, today, status },
 }) => (
