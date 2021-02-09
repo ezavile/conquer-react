@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { Author, BackgroundImage, Share } from 'components';
 
@@ -13,7 +13,7 @@ export interface CardProps {
   };
 }
 
-export const Card: React.FC<CardProps> = ({
+export const Card: FC<CardProps> = ({
   image,
   title,
   description,

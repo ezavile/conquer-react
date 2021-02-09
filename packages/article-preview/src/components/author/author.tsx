@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 export interface AuthorProps {
   avatar: string;
@@ -6,11 +6,7 @@ export interface AuthorProps {
   publishedAt: string;
 }
 
-export const Author: React.FC<AuthorProps> = ({
-  avatar,
-  name,
-  publishedAt,
-}) => {
+export const Author: FC<AuthorProps> = ({ avatar, name, publishedAt }) => {
   const datetime = new Date(publishedAt).toLocaleDateString('en-US');
 
   return (

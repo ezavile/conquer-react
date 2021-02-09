@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, RenderResult, fireEvent } from '@testing-library/react';
 import { Share } from './share';
 
