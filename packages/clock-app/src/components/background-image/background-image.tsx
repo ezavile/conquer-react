@@ -1,25 +1,7 @@
 import styled from 'styled-components';
 
 import { CurrentTime } from 'models/current-time';
-import smDay from './sm-daytime.jpg';
-import mdDay from './md-daytime.jpg';
-import lgDay from './lg-daytime.jpg';
-import smNight from './sm-nighttime.jpg';
-import mdNight from './md-nighttime.jpg';
-import lgNight from './lg-nighttime.jpg';
-
-const images = {
-  daytime: {
-    sm: smDay,
-    md: mdDay,
-    lg: lgDay,
-  },
-  nighttime: {
-    sm: smNight,
-    md: mdNight,
-    lg: lgNight,
-  },
-};
+import { IMAGES } from './images';
 
 export interface BackgroundImageProps {
   currentTime: CurrentTime;
@@ -34,7 +16,7 @@ const BackgroundImage = styled.div<BackgroundImageProps>`
   background-position: center;
   background-size: cover;
   z-index: -1;
-  background-image: ${({ currentTime }) => `url(${images[currentTime].sm})`};
+  background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].sm})`};
 
   &::after {
     content: '';
@@ -47,11 +29,11 @@ const BackgroundImage = styled.div<BackgroundImageProps>`
   }
 
   @media (min-width: 576px) {
-    background-image: ${({ currentTime }) => `url(${images[currentTime].md})`};
+    background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].md})`};
   }
 
   @media (min-width: 768px) {
-    background-image: ${({ currentTime }) => `url(${images[currentTime].lg})`};
+    background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].lg})`};
   }
 `;
 
