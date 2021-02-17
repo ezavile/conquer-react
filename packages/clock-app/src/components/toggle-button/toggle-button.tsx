@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, FC } from 'react';
 import styled from 'styled-components';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 
@@ -40,8 +40,8 @@ const Button = styled.button`
   }
 `;
 
-export const ToggleButton: React.FC<{}> = () => {
-  const [on, toggle] = React.useState(false);
+export const ToggleButton: FC<{}> = () => {
+  const [on, toggle] = useState(false);
   const Chevron = on ? CgChevronUp : CgChevronDown;
   const text = on ? 'Less' : 'More';
 

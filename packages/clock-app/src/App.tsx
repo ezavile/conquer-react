@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BackgroundImage, Text, TextType, ToggleButton } from './components';
 import { GlobalStyle } from './styles/global-style';
 
