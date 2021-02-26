@@ -2,8 +2,8 @@ import { useState, FC } from 'react';
 import styled from 'styled-components';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 
-import { Text } from 'components';
 import { COLORS } from 'styles/colors';
+import { TEXT } from 'styles/text';
 
 const IconWrapper = styled.span`
   background-color: ${COLORS.grayish};
@@ -29,15 +29,17 @@ const Button = styled.button`
   border: 0;
   outline: none;
 
-  ${Text} {
-    font-weight: bold;
-  }
-
   &:hover {
     ${IconWrapper} {
       background-color: ${COLORS['light-grayish']};
     }
   }
+`;
+
+const Text = styled.span`
+  ${() => ({ ...TEXT.XS })}
+  color: ${COLORS['light-dark']};
+  font-weight: bold;
 `;
 
 export const ToggleButton: FC<{}> = () => {
@@ -47,9 +49,7 @@ export const ToggleButton: FC<{}> = () => {
 
   return (
     <Button onClick={() => toggle(!on)}>
-      <Text type="xs" color="light-dark">
-        {text}
-      </Text>
+      <Text>{text}</Text>
       <IconWrapper>
         <Chevron size="22px" />
       </IconWrapper>
