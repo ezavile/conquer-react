@@ -1,1 +1,1 @@
-export type CurrentTime = 'daytime' | 'nighttime';
+export type CurrentTime = 'day' | 'night';
