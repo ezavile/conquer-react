@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 import { RiSunFill } from 'react-icons/ri';
+import { getIpData, getTimezoneData } from 'api';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -72,6 +74,23 @@ const Wrapper = styled.div`
 `;
 
 export const Clock: FC<{}> = () => {
+  const [abbr, setAbbr] = useState('');
+  const [city, setCity] = useState('');
+  const [countryCode, setCountryCode] = useState('');
+
+  async function getClockData() {
+    const timezone = await getTimezoneData();
+    const ip = await getIpData();
+
+    setAbbr(timezone.abbreviation);
+    setCity(ip.city);
+    setCountryCode(ip.country_code);
+  }
+
+  useEffect(() => {
+    getClockData();
+  }, []);
+
   return (
     <Wrapper>
       <GreetingWrapper>
@@ -79,10 +98,17 @@ export const Clock: FC<{}> = () => {
         <GreetingMessage>Good Morning</GreetingMessage>
       </GreetingWrapper>
       <TimeWrapper>
-        <Time>23:14</Time>
-        <LocalTime>BST</LocalTime>
+        <Time>
+          {new Date().toLocaleTimeString(navigator.language, {
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
+        </Time>
+        <LocalTime>{abbr}</LocalTime>
       </TimeWrapper>
-      <Location>IN LONDON, UK</Location>
+      <Location>
+        in {city}, {countryCode}
+      </Location>
     </Wrapper>
   );
 };

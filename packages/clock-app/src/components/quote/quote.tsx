@@ -1,11 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
-
-export interface QuoteProps {
-  author: string;
-  text: string;
-}
+import { fetchRandomQuote } from 'api';
 
 const Wrapper = styled.div`
   max-width: 28rem;
@@ -30,16 +26,30 @@ const Author = styled.b`
   font-weight: bold;
 `;
 
-export const Quote: FC<QuoteProps> = ({ author, text }) => {
+export const Quote: FC<{}> = () => {
+  const [author, setAuthor] = useState('');
+  const [content, setContent] = useState('');
+
+  async function getRandomQuote() {
+    const quote = await fetchRandomQuote();
+    setAuthor(quote.author);
+    setContent(quote.content);
+  }
+
+  useEffect(() => {
+    getRandomQuote();
+  }, []);
+
   return (
     <Wrapper>
       <QuoteText>
-        {text}
+        {content}
         <BiRefresh
           role="button"
           opacity="0.5"
           size="2rem"
           style={{ position: 'absolute', right: 0, top: 0 }}
+          onClick={getRandomQuote}
         />
       </QuoteText>
       <Author>{author}</Author>
