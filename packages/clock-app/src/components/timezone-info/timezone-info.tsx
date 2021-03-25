@@ -1,11 +1,12 @@
+import { useApp } from 'context/app-context';
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from 'styles';
 
-const Wrapper = styled.div`
-  background: rgba(255, 255, 255, 0.75);
+const Wrapper = styled.div<{ color: string; background: string }>`
   backdrop-filter: blur(40.7742px);
-  color: ${COLORS.grayish};
+  color: ${(props) => props.color};
+  background: ${(props) => props.background};
   position: absolute;
   top: 100%;
   left: 0;
@@ -14,9 +15,10 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   padding: 3rem 1.625rem;
+  display: grid;
+  grid-gap: 1rem;
 
   @media (min-width: 768px) {
-    display: grid;
     grid-template-columns: auto auto;
     grid-gap: 2.625rem;
   }
@@ -31,11 +33,6 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   @media (min-width: 768px) {
     flex-direction: column;
@@ -75,6 +72,12 @@ export interface TimezoneInfoRef {
 }
 
 export const TimezoneInfo = forwardRef((_props, ref: Ref<TimezoneInfoRef>) => {
+  const {
+    state: {
+      timezone: { time, location, dayOfWeek, dayOfYear, weekNumber },
+    },
+  } = useApp();
+
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => {
@@ -85,24 +88,30 @@ export const TimezoneInfo = forwardRef((_props, ref: Ref<TimezoneInfoRef>) => {
     };
   });
 
+  const isDark = time === 'evening';
+
   return (
-    <Wrapper ref={wrapperRef}>
+    <Wrapper
+      ref={wrapperRef}
+      background={isDark ? COLORS.dark : COLORS.white}
+      color={isDark ? COLORS.white : COLORS.grayish}
+    >
       <Container>
         <Row>
           <RowLabel>Current timezone</RowLabel>
-          <RowValue>Europe/London</RowValue>
+          <RowValue>{location}</RowValue>
         </Row>
         <Row>
           <RowLabel>Day of the year</RowLabel>
-          <RowValue>295</RowValue>
+          <RowValue>{dayOfYear}</RowValue>
         </Row>
         <Row>
           <RowLabel>Day of the week</RowLabel>
-          <RowValue>5</RowValue>
+          <RowValue>{dayOfWeek}</RowValue>
         </Row>
         <Row>
           <RowLabel>Week number</RowLabel>
-          <RowValue>42</RowValue>
+          <RowValue>{weekNumber}</RowValue>
         </Row>
       </Container>
     </Wrapper>

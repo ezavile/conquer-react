@@ -41,6 +41,7 @@ function App() {
   const [moveUpTo, setMoveUpTo] = useState(0);
 
   const handleToggle = (on: boolean) => {
+    // TODO: add resize hook
     const height = on ? timezoneRef.current?.getHeight() || 0 : 0;
     setMoveUpTo(height);
   };
@@ -48,7 +49,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <BackgroundImage currentTime="day" />
+      <BackgroundImage />
       <Wrapper moveUpTo={moveUpTo}>
         <Quote />
         <ClockWrapper>

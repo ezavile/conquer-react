@@ -1,7 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
 import { fetchRandomQuote } from 'api';
+import { useApp } from 'context/app-context';
 
 const Wrapper = styled.div`
   max-width: 28rem;
@@ -27,17 +28,27 @@ const Author = styled.b`
 `;
 
 export const Quote: FC<{}> = () => {
-  const [author, setAuthor] = useState('');
-  const [content, setContent] = useState('');
+  const {
+    state: {
+      quote: { content, author },
+    },
+    dispatch,
+  } = useApp();
 
+  // TODO: check useAsync and useCallback
   async function getRandomQuote() {
+    // TODO: use request status for loading, error, resolved, etc
     const quote = await fetchRandomQuote();
-    setAuthor(quote.author);
-    setContent(quote.content);
+
+    dispatch({
+      type: 'setQuote',
+      payload: { content: quote.content, author: quote.author },
+    });
   }
 
   useEffect(() => {
     getRandomQuote();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

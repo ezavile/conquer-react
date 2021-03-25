@@ -6,12 +6,17 @@ import mdNight from './md-nighttime.jpg';
 import lgNight from './lg-nighttime.jpg';
 
 export const IMAGES = {
-  day: {
+  morning: {
     sm: smDay,
     md: mdDay,
     lg: lgDay,
   },
-  night: {
+  afternoon: {
+    sm: smDay,
+    md: mdDay,
+    lg: lgDay,
+  },
+  evening: {
     sm: smNight,
     md: mdNight,
     lg: lgNight,

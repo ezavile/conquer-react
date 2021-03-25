@@ -1,8 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
-import { RiSunFill } from 'react-icons/ri';
+import { RiSunFill, RiMoonFill } from 'react-icons/ri';
 import { getIpData, getTimezoneData } from 'api';
+import { useApp } from 'context/app-context';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -10,7 +11,15 @@ const GreetingWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const GreetingMessage = styled.span``;
+const GreetingMessage = styled.span`
+  span {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline;
+    }
+  }
+`;
 
 const TimeWrapper = styled.div``;
 
@@ -74,34 +83,62 @@ const Wrapper = styled.div`
 `;
 
 export const Clock: FC<{}> = () => {
-  const [abbr, setAbbr] = useState('');
-  const [city, setCity] = useState('');
-  const [countryCode, setCountryCode] = useState('');
+  const {
+    state: {
+      timezone: { time, abbr, city, countryCode },
+    },
+    dispatch,
+  } = useApp();
   const [date, setDate] = useState(new Date());
 
+  // TODO: check useAsync and useCallback
   async function getClockData() {
+    // TODO: use request status for loading, error, resolved, etc
     const timezone = await getTimezoneData();
     const ip = await getIpData();
 
-    setAbbr(timezone.abbreviation);
-    setCity(ip.city);
-    setCountryCode(ip.country_code);
+    dispatch({
+      type: 'setTimezoneData',
+      payload: {
+        abbr: timezone.abbreviation,
+        city: ip.city,
+        countryCode: ip.country_code,
+        location: ip.time_zone,
+        dayOfYear: timezone.day_of_year,
+        dayOfWeek: timezone.day_of_week,
+        weekNumber: timezone.week_number,
+      },
+    });
   }
 
   useEffect(() => {
-    const timer = setInterval(() => setDate(new Date()));
+    const timer = setInterval(() => {
+      const currentDate = new Date();
+      // TODO: improve perf
+      // dispatch({ type: 'setHour', payload: { hour: currentDate.getHours() } });
+
+      return setDate(currentDate);
+    });
+
+    dispatch({ type: 'setHour', payload: { hour: new Date().getHours() } });
     getClockData();
 
     return () => {
       clearInterval(timer);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const Icon = time === 'evening' ? RiMoonFill : RiSunFill;
 
   return (
     <Wrapper>
       <GreetingWrapper>
-        <RiSunFill size="2rem" color="white" style={{ marginRight: '1rem' }} />
-        <GreetingMessage>Good Morning</GreetingMessage>
+        <Icon size="2rem" color="white" style={{ marginRight: '1rem' }} />
+        <GreetingMessage>
+          Good {time}
+          <span>, It&apos;s currently</span>
+        </GreetingMessage>
       </GreetingWrapper>
       <TimeWrapper>
         <Time>

@@ -1,13 +1,14 @@
+import { useApp } from 'context/app-context';
+import { AppState } from 'context/app-model';
 import styled from 'styled-components';
 
-import { CurrentTime } from 'models/current-time';
 import { IMAGES } from './images';
 
-export interface BackgroundImageProps {
-  currentTime: CurrentTime;
+export interface WrapperProps {
+  time: AppState['timezone']['time'];
 }
 
-const BackgroundImage = styled.div<BackgroundImageProps>`
+const Wrapper = styled.div<WrapperProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +17,7 @@ const BackgroundImage = styled.div<BackgroundImageProps>`
   background-position: center;
   background-size: cover;
   z-index: -1;
-  background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].sm})`};
+  background: ${({ time }) => `${time ? `url(${IMAGES[time].sm})` : 'black'}`};
 
   &::after {
     content: '';
@@ -29,12 +30,22 @@ const BackgroundImage = styled.div<BackgroundImageProps>`
   }
 
   @media (min-width: 576px) {
-    background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].md})`};
+    background: ${({ time }) =>
+      `${time ? `url(${IMAGES[time].md})` : 'black'}`};
   }
 
   @media (min-width: 768px) {
-    background-image: ${({ currentTime }) => `url(${IMAGES[currentTime].lg})`};
+    background: ${({ time }) =>
+      `${time ? `url(${IMAGES[time].lg})` : 'black'}`};
   }
 `;
 
-export { BackgroundImage };
+export const BackgroundImage = () => {
+  const {
+    state: {
+      timezone: { time },
+    },
+  } = useApp();
+
+  return <Wrapper time={time} />;
+};
