@@ -77,6 +77,7 @@ export const Clock: FC<{}> = () => {
   const [abbr, setAbbr] = useState('');
   const [city, setCity] = useState('');
   const [countryCode, setCountryCode] = useState('');
+  const [date, setDate] = useState(new Date());
 
   async function getClockData() {
     const timezone = await getTimezoneData();
@@ -88,7 +89,12 @@ export const Clock: FC<{}> = () => {
   }
 
   useEffect(() => {
+    const timer = setInterval(() => setDate(new Date()));
     getClockData();
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   return (
@@ -99,7 +105,7 @@ export const Clock: FC<{}> = () => {
       </GreetingWrapper>
       <TimeWrapper>
         <Time>
-          {new Date().toLocaleTimeString(navigator.language, {
+          {date.toLocaleTimeString(navigator.language, {
             hour: '2-digit',
             minute: '2-digit',
           })}
