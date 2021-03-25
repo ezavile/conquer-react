@@ -5,18 +5,20 @@ import {
   Clock,
   Quote,
   TimezoneInfo,
+  TimezoneInfoRef,
   ToggleButton,
 } from 'components';
 
 import { GlobalStyle } from 'styles';
+import { useRef, useState } from 'react';
 
-const Wrapper = styled.main`
+const Wrapper = styled.main<{ moveUpTo: number }>`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease-out;
-  transform: translateY(0px);
+  transform: ${(props) => `translateY(-${props.moveUpTo}px)`};
   padding: 2rem 1.625rem 2.5rem;
 
   @media (min-width: 1440px) {
@@ -35,18 +37,26 @@ const ClockWrapper = styled.div`
 `;
 
 function App() {
+  const timezoneRef = useRef<TimezoneInfoRef>(null);
+  const [moveUpTo, setMoveUpTo] = useState(0);
+
+  const handleToggle = (on: boolean) => {
+    const height = on ? timezoneRef.current?.getHeight() || 0 : 0;
+    setMoveUpTo(height);
+  };
+
   return (
     <>
       <GlobalStyle />
       <BackgroundImage currentTime="day" />
-      <Wrapper>
+      <Wrapper moveUpTo={moveUpTo}>
         <Quote />
         <ClockWrapper>
           <Clock />
-          <ToggleButton />
+          <ToggleButton onToggle={handleToggle} />
         </ClockWrapper>
+        <TimezoneInfo ref={timezoneRef} />
       </Wrapper>
-      <TimezoneInfo />
     </>
   );
 }

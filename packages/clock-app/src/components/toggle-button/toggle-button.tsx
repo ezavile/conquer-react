@@ -56,13 +56,22 @@ const Text = styled.span`
   }
 `;
 
-export const ToggleButton: FC<{}> = () => {
+export const ToggleButton: FC<{ onToggle: (on: boolean) => void }> = ({
+  onToggle,
+}) => {
   const [on, toggle] = useState(false);
   const Chevron = on ? CgChevronUp : CgChevronDown;
   const text = on ? 'Less' : 'More';
 
   return (
-    <Button onClick={() => toggle(!on)}>
+    <Button
+      onClick={() => {
+        // TODO: use Prop Collections and Getters pattern
+        const newValue = !on;
+        toggle(newValue);
+        onToggle(newValue);
+      }}
+    >
       <Text>{text}</Text>
       <IconWrapper>
         <Chevron size="1.5rem" />

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from 'styles';
 
@@ -70,9 +70,23 @@ const RowValue = styled.span`
   }
 `;
 
-export const TimezoneInfo: FC<{}> = () => {
+export interface TimezoneInfoRef {
+  getHeight: () => number | undefined;
+}
+
+export const TimezoneInfo = forwardRef((_props, ref: Ref<TimezoneInfoRef>) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => {
+    return {
+      getHeight() {
+        return wrapperRef.current?.offsetHeight;
+      },
+    };
+  });
+
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <Container>
         <Row>
           <RowLabel>Current timezone</RowLabel>
@@ -93,4 +107,4 @@ export const TimezoneInfo: FC<{}> = () => {
       </Container>
     </Wrapper>
   );
-};
+});
