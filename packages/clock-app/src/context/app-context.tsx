@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useContext, useReducer } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  ReactNode,
+  useCallback,
+  useContext,
+  useReducer,
+} from 'react';
 import { AppAction, AppDispatch, AppState, initialState } from './app-model';
 
 const AppStateContext = createContext<AppState>(initialState);
@@ -61,6 +68,46 @@ function appReducer(state: AppState, action: AppAction): AppState {
       return state;
     }
   }
+}
+
+// TODO: use Context Module Functions
+export function useRequest(
+  key: keyof AppState['request'],
+  dispatch: Dispatch<AppAction>
+) {
+  const run = useCallback(
+    (promise: Promise<any>) => {
+      dispatch({ type: 'request', payload: { key, status: 'pending' } });
+      promise.then((data: any) => {
+        dispatch({ type: 'request', payload: { key, status: 'resolved' } });
+
+        if (key === 'quote') {
+          dispatch({
+            type: 'setQuote',
+            payload: { content: data.content, author: data.author },
+          });
+        }
+
+        if (key === 'timezone') {
+          dispatch({
+            type: 'setTimezoneData',
+            payload: {
+              abbr: data.abbreviation,
+              city: data.city,
+              countryCode: data.country_code,
+              location: data.time_zone,
+              dayOfYear: data.day_of_year,
+              dayOfWeek: data.day_of_week,
+              weekNumber: data.week_number,
+            },
+          });
+        }
+      });
+    },
+    [key, dispatch]
+  );
+
+  return run;
 }
 
 function AppProvider({ children }: { children: ReactNode }) {

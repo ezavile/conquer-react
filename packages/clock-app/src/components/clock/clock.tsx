@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import { RiSunFill, RiMoonFill } from 'react-icons/ri';
 import { getIpData, getTimezoneData } from 'api';
-import { useApp } from 'context/app-context';
+import { useApp, useRequest } from 'context/app-context';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -82,6 +82,13 @@ const Wrapper = styled.div`
   }
 `;
 
+async function fetchTimezon() {
+  const timezone = await getTimezoneData();
+  const ip = await getIpData();
+
+  return { ...timezone, ...ip };
+}
+
 export const Clock: FC<{}> = () => {
   const {
     state: {
@@ -91,25 +98,11 @@ export const Clock: FC<{}> = () => {
   } = useApp();
   const [date, setDate] = useState(new Date());
 
-  // TODO: check useAsync and useCallback
-  async function getClockData() {
-    // TODO: use request status for loading, error, resolved, etc
-    const timezone = await getTimezoneData();
-    const ip = await getIpData();
+  const run = useRequest('timezone', dispatch);
 
-    dispatch({
-      type: 'setTimezoneData',
-      payload: {
-        abbr: timezone.abbreviation,
-        city: ip.city,
-        countryCode: ip.country_code,
-        location: ip.time_zone,
-        dayOfYear: timezone.day_of_year,
-        dayOfWeek: timezone.day_of_week,
-        weekNumber: timezone.week_number,
-      },
-    });
-  }
+  const getClockData = useCallback(() => {
+    run(fetchTimezon());
+  }, [run]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -126,10 +119,11 @@ export const Clock: FC<{}> = () => {
     return () => {
       clearInterval(timer);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, getClockData]);
 
   const Icon = time === 'evening' ? RiMoonFill : RiSunFill;
+
+  // TODO: add custom spinner (Flexible Compound Components?)
 
   return (
     <Wrapper>

@@ -1,8 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
 import { fetchRandomQuote } from 'api';
-import { useApp } from 'context/app-context';
+import { useApp, useRequest } from 'context/app-context';
 
 const Wrapper = styled.div`
   max-width: 28rem;
@@ -35,21 +35,17 @@ export const Quote: FC<{}> = () => {
     dispatch,
   } = useApp();
 
-  // TODO: check useAsync and useCallback
-  async function getRandomQuote() {
-    // TODO: use request status for loading, error, resolved, etc
-    const quote = await fetchRandomQuote();
+  const run = useRequest('quote', dispatch);
 
-    dispatch({
-      type: 'setQuote',
-      payload: { content: quote.content, author: quote.author },
-    });
-  }
+  const getRandomQuote = useCallback(() => {
+    run(fetchRandomQuote());
+  }, [run]);
 
   useEffect(() => {
     getRandomQuote();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [getRandomQuote]);
+
+  // TODO: add custom spinner (Flexible Compound Components?)
 
   return (
     <Wrapper>

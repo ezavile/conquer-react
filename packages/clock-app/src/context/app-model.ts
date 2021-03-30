@@ -1,4 +1,4 @@
-type RequestStatus = 'pending' | 'resolved' | 'rejected';
+type RequestStatus = 'idle' | 'pending' | 'resolved' | 'rejected';
 
 export interface AppState {
   quote: {
