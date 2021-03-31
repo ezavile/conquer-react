@@ -3,6 +3,7 @@ import { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { RiSunFill, RiMoonFill } from 'react-icons/ri';
 import { useClockAppState, getTimezone } from 'context/app-context';
+import { RequestHandler } from 'context/request-context';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -123,7 +124,6 @@ export const Clock: FC<{}> = () => {
 
   const Icon = time === 'evening' ? RiMoonFill : RiSunFill;
 
-  // TODO: add custom spinner (Flexible Compound Components?)
   return (
     <Wrapper>
       <GreetingWrapper>
@@ -135,11 +135,15 @@ export const Clock: FC<{}> = () => {
       </GreetingWrapper>
       <TimeWrapper>
         <Time>{formattedDate}</Time>
-        <LocalTime>{abbr}</LocalTime>
+        <RequestHandler request="timezone">
+          <LocalTime>{abbr}</LocalTime>
+        </RequestHandler>
       </TimeWrapper>
-      <Location>
-        in {city}, {countryCode}
-      </Location>
+      <RequestHandler request="timezone">
+        <Location>
+          in {city}, {countryCode}
+        </Location>
+      </RequestHandler>
     </Wrapper>
   );
 };
