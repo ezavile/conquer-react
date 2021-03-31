@@ -1,4 +1,4 @@
-import { useApp } from 'context/app-context';
+import { useClockAppState } from 'context/app-context';
 import { AppState } from 'context/app-model';
 import styled from 'styled-components';
 
@@ -46,7 +46,7 @@ export const BackgroundImage = () => {
     state: {
       timezone: { time },
     },
-  } = useApp();
+  } = useClockAppState();
 
   return <Wrapper time={time} />;
 };

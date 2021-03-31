@@ -8,17 +8,20 @@ import {
 } from 'react';
 import { AppAction, AppDispatch, AppState, initialState } from './app-model';
 
-const AppStateContext = createContext<AppState>(initialState);
-const AppDispatchContext = createContext<AppDispatch | undefined>(undefined);
+const ClockAppContext = createContext<{
+  state: AppState;
+  dispatch: AppDispatch;
+}>({ state: initialState, dispatch: undefined as any });
+
+ClockAppContext.displayName = 'ClockAppContext';
 
 /**
  * TODO:
  * use produce
  * use xState for request status
  * use error handler
- * https://levelup.gitconnected.com/usetypescript-a-complete-guide-to-react-hooks-and-typescript-db1858d1fb9c
  */
-function appReducer(state: AppState, action: AppAction): AppState {
+export function clockAppReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'request': {
       const { key, status } = action.payload;
@@ -115,40 +118,23 @@ export async function getTimezone(dispatch: Dispatch<AppAction>) {
 }
 
 function AppProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(appReducer, initialState);
+  const [state, dispatch] = useReducer(clockAppReducer, initialState);
 
   return (
-    <AppStateContext.Provider value={state}>
-      <AppDispatchContext.Provider value={dispatch}>
-        {children}
-      </AppDispatchContext.Provider>
-    </AppStateContext.Provider>
+    <ClockAppContext.Provider value={{ state, dispatch }}>
+      {children}
+    </ClockAppContext.Provider>
   );
 }
 
-function useAppState() {
-  const context = useContext(AppStateContext);
+function useClockAppState() {
+  const context = useContext(ClockAppContext);
 
   if (context === undefined) {
-    throw new Error('useAppState must be used within a AppProvider');
+    throw new Error('useClockAppContext must be used within a AppProvider');
   }
 
   return context;
 }
 
-function useAppDispatch() {
-  const context = useContext(AppDispatchContext);
-
-  if (context === undefined) {
-    throw new Error('useAppDispatch must be used within a AppProvider');
-  }
-
-  return context;
-}
-
-// TODO: use context module pattern
-function useApp() {
-  return { state: useAppState(), dispatch: useAppDispatch() };
-}
-
-export { AppProvider, useApp };
+export { AppProvider, useClockAppState };

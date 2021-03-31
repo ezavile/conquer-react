@@ -1,4 +1,4 @@
-import { useApp } from 'context/app-context';
+import { useClockAppState } from 'context/app-context';
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from 'styles';
@@ -76,7 +76,7 @@ export const TimezoneInfo = forwardRef((_props, ref: Ref<TimezoneInfoRef>) => {
     state: {
       timezone: { time, location, dayOfWeek, dayOfYear, weekNumber },
     },
-  } = useApp();
+  } = useClockAppState();
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 

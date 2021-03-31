@@ -2,7 +2,7 @@ import { FC, useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
 import { RiSunFill, RiMoonFill } from 'react-icons/ri';
-import { useApp, getTimezone } from 'context/app-context';
+import { useClockAppState, getTimezone } from 'context/app-context';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -87,7 +87,7 @@ export const Clock: FC<{}> = () => {
       timezone: { formattedDate, time, abbr, city, countryCode },
     },
     dispatch,
-  } = useApp();
+  } = useClockAppState();
 
   const minuteRef = useRef<number>();
 

@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
-import { useApp, getRandomQuote } from 'context/app-context';
+import { useClockAppState, getRandomQuote } from 'context/app-context';
 
 const Wrapper = styled.div`
   max-width: 28rem;
@@ -32,7 +32,7 @@ export const Quote: FC<{}> = () => {
       quote: { content, author },
     },
     dispatch,
-  } = useApp();
+  } = useClockAppState();
 
   const getRandomQuoteCb = useCallback(() => {
     getRandomQuote(dispatch);
