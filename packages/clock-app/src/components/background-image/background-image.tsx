@@ -17,7 +17,8 @@ const Wrapper = styled.div<WrapperProps>`
   background-position: center;
   background-size: cover;
   z-index: -1;
-  background: ${({ time }) => `${time ? `url(${IMAGES[time].sm})` : 'black'}`};
+  background-image: ${({ time }) =>
+    `${time ? `url(${IMAGES[time].sm})` : 'black'}`};
 
   &::after {
     content: '';
@@ -30,12 +31,12 @@ const Wrapper = styled.div<WrapperProps>`
   }
 
   @media (min-width: 576px) {
-    background: ${({ time }) =>
+    background-image: ${({ time }) =>
       `${time ? `url(${IMAGES[time].md})` : 'black'}`};
   }
 
   @media (min-width: 768px) {
-    background: ${({ time }) =>
+    background-image: ${({ time }) =>
       `${time ? `url(${IMAGES[time].lg})` : 'black'}`};
   }
 `;

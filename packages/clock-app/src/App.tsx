@@ -12,13 +12,16 @@ import {
 import { GlobalStyle } from 'styles';
 import { useRef, useState } from 'react';
 
-const Wrapper = styled.main<{ moveUpTo: number }>`
+const Main = styled.main<{ moveUpTo: number }>`
+  transition: transform 0.3s ease-out;
+  transform: ${(props) => `translateY(-${props.moveUpTo}px)`};
+`;
+
+const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease-out;
-  transform: ${(props) => `translateY(-${props.moveUpTo}px)`};
   padding: 2rem 1.625rem 2.5rem;
 
   @media (min-width: 1440px) {
@@ -50,14 +53,16 @@ function App() {
     <>
       <GlobalStyle />
       <BackgroundImage />
-      <Wrapper moveUpTo={moveUpTo}>
-        <Quote />
-        <ClockWrapper>
-          <Clock />
-          <ToggleButton onToggle={handleToggle} />
-        </ClockWrapper>
+      <Main moveUpTo={moveUpTo}>
+        <Container>
+          <Quote />
+          <ClockWrapper>
+            <Clock />
+            <ToggleButton onToggle={handleToggle} />
+          </ClockWrapper>
+        </Container>
         <TimezoneInfo ref={timezoneRef} />
-      </Wrapper>
+      </Main>
     </>
   );
 }
