@@ -56,25 +56,50 @@ const Text = styled.span`
   }
 `;
 
+function callAll(...fns: any[]) {
+  return (...args: any) => {
+    fns.forEach((fn) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      fn && fn(...args);
+    });
+  };
+}
+
+function useToggle() {
+  const [on, setOn] = useState(false);
+  const toggle = () => setOn(!on);
+
+  function getTogglerProps({ onClick, ...props }: any = {}) {
+    return {
+      'aria-pressed': on,
+      text: on ? 'Less' : 'More',
+      Icon: on ? CgChevronUp : CgChevronDown,
+      onClick: callAll(toggle, () => onClick(!on)),
+      ...props,
+    };
+  }
+
+  return {
+    on,
+    toggle,
+    getTogglerProps,
+  };
+}
+
 export const ToggleButton: FC<{ onToggle: (on: boolean) => void }> = ({
   onToggle,
 }) => {
-  const [on, toggle] = useState(false);
-  const Chevron = on ? CgChevronUp : CgChevronDown;
-  const text = on ? 'Less' : 'More';
+  const { getTogglerProps } = useToggle();
+
+  const { text, Icon, onClick } = getTogglerProps({
+    onClick: onToggle,
+  });
 
   return (
-    <Button
-      onClick={() => {
-        // TODO: use Prop Collections and Getters pattern
-        const newValue = !on;
-        toggle(newValue);
-        onToggle(newValue);
-      }}
-    >
+    <Button onClick={onClick}>
       <Text>{text}</Text>
       <IconWrapper>
-        <Chevron size="1.5rem" />
+        <Icon size="1.5rem" />
       </IconWrapper>
     </Button>
   );
