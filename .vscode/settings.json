@@ -1,11 +1,15 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "conventionalCommits.scopes": [
     "article-preview",
     "coding-bootcamp-testimonials-slider",
     "craco-config",
-    "social-media-dashboard"
+    "social-media-dashboard",
+    "clock-app"
   ]
 }
