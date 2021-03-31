@@ -1,9 +1,8 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
 import { RiSunFill, RiMoonFill } from 'react-icons/ri';
-import { getIpData, getTimezoneData } from 'api';
-import { useApp, useRequest } from 'context/app-context';
+import { useApp, getTimezone } from 'context/app-context';
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -82,49 +81,49 @@ const Wrapper = styled.div`
   }
 `;
 
-async function fetchTimezon() {
-  const timezone = await getTimezoneData();
-  const ip = await getIpData();
-
-  return { ...timezone, ...ip };
-}
-
 export const Clock: FC<{}> = () => {
   const {
     state: {
-      timezone: { time, abbr, city, countryCode },
+      timezone: { formattedDate, time, abbr, city, countryCode },
     },
     dispatch,
   } = useApp();
-  const [date, setDate] = useState(new Date());
 
-  const run = useRequest('timezone', dispatch);
-
-  const getClockData = useCallback(() => {
-    run(fetchTimezon());
-  }, [run]);
+  const minuteRef = useRef<number>();
 
   useEffect(() => {
     const timer = setInterval(() => {
       const currentDate = new Date();
-      // TODO: improve perf
-      // dispatch({ type: 'setHour', payload: { hour: currentDate.getHours() } });
+      const currentMinute = currentDate.getMinutes();
 
-      return setDate(currentDate);
+      if (minuteRef.current === currentMinute) return;
+
+      minuteRef.current = currentMinute;
+
+      dispatch({
+        type: 'setDate',
+        payload: {
+          formattedDate: currentDate.toLocaleTimeString(navigator.language, {
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+          hour: currentDate.getHours(),
+        },
+      });
     });
-
-    dispatch({ type: 'setHour', payload: { hour: new Date().getHours() } });
-    getClockData();
 
     return () => {
       clearInterval(timer);
     };
-  }, [dispatch, getClockData]);
+  }, [dispatch]);
+
+  useEffect(() => {
+    getTimezone(dispatch);
+  }, [dispatch]);
 
   const Icon = time === 'evening' ? RiMoonFill : RiSunFill;
 
   // TODO: add custom spinner (Flexible Compound Components?)
-
   return (
     <Wrapper>
       <GreetingWrapper>
@@ -135,12 +134,7 @@ export const Clock: FC<{}> = () => {
         </GreetingMessage>
       </GreetingWrapper>
       <TimeWrapper>
-        <Time>
-          {date.toLocaleTimeString(navigator.language, {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
-        </Time>
+        <Time>{formattedDate}</Time>
         <LocalTime>{abbr}</LocalTime>
       </TimeWrapper>
       <Location>

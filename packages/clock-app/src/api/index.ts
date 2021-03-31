@@ -30,7 +30,7 @@ export async function getIpData(): Promise<{
   return doFetch('https://freegeoip.app/json/');
 }
 
-export async function getTimezoneData(): Promise<{
+export async function fetchTimezoneData(): Promise<{
   abbreviation: string;
   client_ip: string;
   datetime: string;

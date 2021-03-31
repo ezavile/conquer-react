@@ -7,6 +7,7 @@ export interface AppState {
   };
   timezone: {
     time: 'morning' | 'afternoon' | 'evening';
+    formattedDate: string;
     abbr: string;
     city: string;
     countryCode: string;
@@ -29,6 +30,10 @@ export const initialState: AppState = {
   timezone: {
     time: null as any,
     abbr: '',
+    formattedDate: new Date().toLocaleTimeString(navigator.language, {
+      hour: '2-digit',
+      minute: '2-digit',
+    }),
     city: '',
     countryCode: '',
     location: '',
@@ -44,7 +49,7 @@ export const initialState: AppState = {
 
 export type AppAction =
   | { type: 'setQuote'; payload: { content: string; author: string } }
-  | { type: 'setHour'; payload: { hour: number } }
+  | { type: 'setDate'; payload: { formattedDate: string; hour: number } }
   | { type: 'setTimezoneData'; payload: Partial<AppState['timezone']> }
   | {
       type: 'request';

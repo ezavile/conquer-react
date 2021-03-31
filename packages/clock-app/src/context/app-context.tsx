@@ -1,8 +1,8 @@
-import React, {
+import { fetchRandomQuote, getIpData, fetchTimezoneData } from 'api';
+import {
   createContext,
   Dispatch,
   ReactNode,
-  useCallback,
   useContext,
   useReducer,
 } from 'react';
@@ -16,6 +16,7 @@ const AppDispatchContext = createContext<AppDispatch | undefined>(undefined);
  * use produce
  * use xState for request status
  * use error handler
+ * https://levelup.gitconnected.com/usetypescript-a-complete-guide-to-react-hooks-and-typescript-db1858d1fb9c
  */
 function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
@@ -41,8 +42,8 @@ function appReducer(state: AppState, action: AppAction): AppState {
         },
       };
     }
-    case 'setHour': {
-      const { hour } = action.payload;
+    case 'setDate': {
+      const { formattedDate, hour } = action.payload;
 
       const isMorning = hour >= 5 && hour < 12 && 'morning';
       const isAfternoon = hour >= 12 && hour < 18 && 'afternoon';
@@ -51,6 +52,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
         ...state,
         timezone: {
           ...state.timezone,
+          formattedDate,
           time: isMorning || isAfternoon || 'evening',
         },
       };
@@ -70,48 +72,49 @@ function appReducer(state: AppState, action: AppAction): AppState {
   }
 }
 
-// TODO: use Context Module Functions
-export function useRequest(
-  key: keyof AppState['request'],
-  dispatch: Dispatch<AppAction>
-) {
-  const run = useCallback(
-    (promise: Promise<any>) => {
-      dispatch({ type: 'request', payload: { key, status: 'pending' } });
-      promise.then((data: any) => {
-        dispatch({ type: 'request', payload: { key, status: 'resolved' } });
+export async function getRandomQuote(dispatch: Dispatch<AppAction>) {
+  const key = 'quote';
 
-        if (key === 'quote') {
-          dispatch({
-            type: 'setQuote',
-            payload: { content: data.content, author: data.author },
-          });
-        }
+  try {
+    dispatch({ type: 'request', payload: { key, status: 'pending' } });
+    const { content, author } = await fetchRandomQuote();
+    dispatch({ type: 'setQuote', payload: { content, author } });
+    dispatch({ type: 'request', payload: { key, status: 'resolved' } });
+  } catch (error) {
+    dispatch({ type: 'request', payload: { key, status: 'rejected' } });
 
-        if (key === 'timezone') {
-          dispatch({
-            type: 'setTimezoneData',
-            payload: {
-              abbr: data.abbreviation,
-              city: data.city,
-              countryCode: data.country_code,
-              location: data.time_zone,
-              dayOfYear: data.day_of_year,
-              dayOfWeek: data.day_of_week,
-              weekNumber: data.week_number,
-            },
-          });
-        }
-      });
-    },
-    [key, dispatch]
-  );
+    throw error;
+  }
+}
 
-  return run;
+export async function getTimezone(dispatch: Dispatch<AppAction>) {
+  const key = 'timezone';
+
+  try {
+    dispatch({ type: 'request', payload: { key, status: 'pending' } });
+    const timezone = await fetchTimezoneData();
+    const ip = await getIpData();
+    dispatch({
+      type: 'setTimezoneData',
+      payload: {
+        abbr: timezone.abbreviation,
+        city: ip.city,
+        countryCode: ip.country_code,
+        location: ip.time_zone,
+        dayOfYear: timezone.day_of_year,
+        dayOfWeek: timezone.day_of_week,
+        weekNumber: timezone.week_number,
+      },
+    });
+    dispatch({ type: 'request', payload: { key, status: 'resolved' } });
+  } catch (error) {
+    dispatch({ type: 'request', payload: { key, status: 'rejected' } });
+
+    throw error;
+  }
 }
 
 function AppProvider({ children }: { children: ReactNode }) {
-  // TODO: check useSafeDispatch
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (

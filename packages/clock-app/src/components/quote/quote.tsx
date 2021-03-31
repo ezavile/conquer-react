@@ -1,8 +1,7 @@
 import { FC, useCallback, useEffect } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
-import { fetchRandomQuote } from 'api';
-import { useApp, useRequest } from 'context/app-context';
+import { useApp, getRandomQuote } from 'context/app-context';
 
 const Wrapper = styled.div`
   max-width: 28rem;
@@ -35,15 +34,13 @@ export const Quote: FC<{}> = () => {
     dispatch,
   } = useApp();
 
-  const run = useRequest('quote', dispatch);
-
-  const getRandomQuote = useCallback(() => {
-    run(fetchRandomQuote());
-  }, [run]);
+  const getRandomQuoteCb = useCallback(() => {
+    getRandomQuote(dispatch);
+  }, [dispatch]);
 
   useEffect(() => {
-    getRandomQuote();
-  }, [getRandomQuote]);
+    getRandomQuoteCb();
+  }, [getRandomQuoteCb]);
 
   // TODO: add custom spinner (Flexible Compound Components?)
 
@@ -56,7 +53,7 @@ export const Quote: FC<{}> = () => {
           opacity="0.5"
           size="2rem"
           style={{ position: 'absolute', right: 0, top: 0 }}
-          onClick={getRandomQuote}
+          onClick={getRandomQuoteCb}
         />
       </QuoteText>
       <Author>{author}</Author>
