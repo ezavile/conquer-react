@@ -24,7 +24,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Tailwind
+          Learn Tailwinds
         </a>
       </div>
     </div>

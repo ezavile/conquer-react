@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
+    "build-storybook": "build-storybook",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "start": "react-scripts start",
-    "test": "react-scripts test",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "react-scripts test"
   },
   "browserslist": {
     "development": [
@@ -41,6 +41,7 @@
     "@storybook/addon-actions": "^6.2.8",
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
+    "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "^6.2.8",
     "babel-loader": "^8.2.2"
   }
