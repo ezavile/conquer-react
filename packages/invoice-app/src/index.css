@@ -5,3 +5,7 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+body {
+  @apply text-cinder;
+}
