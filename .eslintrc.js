@@ -36,7 +36,7 @@ module.exports = {
         devDependencies: true,
         // mono-repo root and package
         // TODO: support devDependencies in any project
-        packageDir: [__dirname, './', './packages/invoice-app'],
+        packageDir: [__dirname, './'],
       },
     ],
   },

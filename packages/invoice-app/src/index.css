@@ -6,6 +6,4 @@
 
 @tailwind utilities;
 
-body {
-  @apply text-cinder;
-}
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap');

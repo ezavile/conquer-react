@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/react';
 import { FC } from 'react';
-import { colors } from './colors';
-import { ColorName } from './Tokens';
+import { colors, ColorName, typography } from './Tokens';
 
 const Color: FC<{ colorName: ColorName }> = ({ colorName }) => (
   <div>
@@ -23,6 +22,62 @@ export const Colors = () => (
     ))}
   </div>
 );
+
+const TypographyDetail: FC<{ variant: string }> = ({ variant }) => (
+  <p className="text-ship-cove mb-4 text-body-small">
+    <span>{variant}</span>
+    {Object.keys(typography[variant]).map((key) => (
+      <span key={key}>
+        <span className="ml-1 mr-1">{' | '}</span>
+        <span>
+          {/* @ts-ignore */}
+          {typography[variant][key]} {key}
+        </span>
+      </span>
+    ))}
+  </p>
+);
+
+export const Typography = () => {
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      <div className="">
+        {['h1', 'h2', 'h3', 'h4'].map((variant) => (
+          <div key={variant} className="mb-12">
+            <TypographyDetail variant={variant} />
+            <p className={`text-${variant} font-bold`}>
+              Aliquam porttitor mauris sit amet orci Aenean
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="">
+        {['body', 'body-small'].map((variant) => (
+          <div key={variant} className="mb-12">
+            <TypographyDetail variant={variant} />
+            <p className={`text-${variant}`}>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+              Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi
+              neque, aliquet vel, dapibus id, mattis vel, nisi.
+              <br />
+              <br />
+              Sed pretium, ligula sollicitudin laoreet viverra, tortor libero
+              sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut
+              justo. Suspendisse potenti. Sed egestas, ante et vulputate
+              volutpat, eros pede semper est, vitae luctus metus libero eu
+              augue. Morbi purus libero, faucibus adipiscing, commodo quis,
+              gravida id, est. Sed lectus. Praesent elementum hendrerit tortor.
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices
+              sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare
+              nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed,
+              urna.
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default {
   title: 'Tokens',
