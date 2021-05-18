@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@geoffcodesthings/react-scripts": "4.0.1",
+    "@heroicons/react": "1.0.1",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.10",
     "tailwindcss": "^2.1.1"
